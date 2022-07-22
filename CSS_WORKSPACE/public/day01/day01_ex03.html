@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS_3 table_style</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        td, th {
+            border: 1px solid blue;
+        }
+
+        th {
+            background-color: aqua;
+        }
+        /* 
+            태그: 태그명
+            아이디: #
+            클래스: .
+            속성: [src], [src="값"]
+        */
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <th>성명</th>
+            <th>직업</th>
+            <th>월급</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>김씨</th>
+                <td>변호사</td>
+                <td>900</td>
+            </tr>
+            <tr>
+                <th>이씨</th>
+                <td>의사</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <th>최씨</th>
+                <td>프로그래머</td>
+                <td>4000</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <th>합계</th>
+            <th>-</th>
+            <th>6900</th>
+        </tfoot>
+    </table>
+</body>
+
+</html>

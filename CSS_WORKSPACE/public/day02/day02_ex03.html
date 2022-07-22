@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>계산기</legend>
+        <form action="">
+            <input type="text" name="num1" id="num1" size="5">
+            <select id="oper">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            <input type="text" name="num2" id="num2" size="5">
+            <input type="button" name="resultBtn" id="resultBtn" value="확인">
+            <div><span id="selOper"></span> 결과 : <span id="resultSpan">0</span></div>
+        </form>
+    </fieldset>
+
+    <script>
+        // quertSelectorALL - 여러개를 컬렉션 형태로
+        let inputlist = document.querySelectorAll("input");
+        inputlist[0].style.backgroundColor = "yellow";
+        inputlist[1].style.backgroundColor = "skyblue";
+        inputlist[2].style.backgroundColor = "orange";
+
+        // querySelector -하나만 선택
+        let num1input = document.querySelector("#num1");
+        let num2input = document.querySelector("#num2");
+        let resultBtn = document.querySelector("#resultBtn");
+        let resultSpan = document.querySelector("#resultSpan");
+        let oper = document.querySelector("#oper");
+        let selOper = document.querySelector("#selOper");
+
+        const calcFactory = [];
+        let getAjaxCalc = function(x,y,oper){
+            // Ajax를 이용해서 서버로 x,y값을 보내고 그 결과를 return.
+            // http://localhost:3000/calc/x/y/plu
+            let xhr = new XMLHttpRequest();
+            console.dir(xhr);
+            xhr.onreadystatechange = function () {
+                if(xhr.status==200 && xhr.readyState==4){
+                    let resultValue = JSON.parse(this.responseText)['resultValue'];
+                    resultSpan.innerText = resultValue;
+                }
+            }
+            let dataStr = `http://localhost:3000/calc/&{x}/&{y}/&{oper}`;
+            console.log(dataStr);
+            xhr.open("GET",dataStr,true);
+            xhr.send();
+            return 0;
+        }
+        calcFactory['+'] = function(x,y){
+            return getAjaxCalc(x,y,'plu');
+        }
+        calcFactory['-'] = function(x,y){
+            return getAjaxCalc(x,y,'min');
+        }
+        calcFactory['*'] = function(x,y){
+            return getAjaxCalc(x,y,'mul');
+        }
+        calcFactory['/'] = function(x,y){
+            return getAjaxCalc(x,y,'div');
+        }
+        calcFactory['%'] = function(x,y){
+            return getAjaxCalc(x,y,'mod');
+        }
+
+
+        let calcControl = function () {
+            let num1 = Number(num1input.value);
+            let num2 = Number(num2input.value);
+            let operStr = oper.value;
+            let str = num1input.value + operStr + num2input.value;
+            //문자열을 수식아나 object로 변경한다.
+            selOper.innerText = operStr;
+            //resultSpan.innerText = eval(str);
+            calcFactory[operStr](num1, num2);
+        }
+        resultBtn.onclick = calcControl;
+        num1input.onkeyup = calcControl;
+        num2input.onkeyup = calcControl;
+        oper.onchange = calcControl;
+
+    </script>
+</body>
+
+</html>

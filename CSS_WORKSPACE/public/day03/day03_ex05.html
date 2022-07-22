@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no,maximum-scale=1, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 3px;
+            padding: 3px;
+            border: 1px solid gray;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        body, div.contents {
+            background-color: darkorange;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+
+        }
+
+        section, aside {
+            float: left;
+            height: 400px;
+        }
+        footer {
+            clear:both;
+        }
+        aside {
+            width: 20%;
+        }
+        section {
+            width: 58%;
+        }
+        section>p {
+            height: 200px;
+        }
+        /* 스마트폰에서 보기 편한 형태로 반응형 적용. */
+        @media screen and (max-width:912px) {
+            *{
+            margin: 3px;
+            padding: 3px;
+            border: 1px solid gray;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        body, div.contents {
+            background-color: skyblue;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+
+        }
+
+        section, aside {
+            float: none;
+            height: auto;
+        }
+        footer {
+            clear:both;
+        }
+        aside {
+            text-align: center;
+            width: auto;
+            float: none;
+        }
+        section {
+            width: auto;
+        }
+        section>p {
+            height: 200px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="contents">
+        <header>header</header>
+        <nav>menu</nav>
+        <aside >left side</aside>
+        <section>
+            <p>main</p>
+            <article>내용1</article>
+            <article>내용2</article>
+            <article>내용3</article>
+        </section>
+        <aside >right side</aside>
+        <footer>
+            (c) Layout.media
+        </footer>
+    </div>
+</body>
+</html>
