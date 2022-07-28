@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header.ejs')%>
+
+    <div class="container">
+        <h2>스마트폰 정보 등록</h2>
+        <form action="input_ok" method="get">
+        <table class="table table-striped">
+            <tr>
+                <th>기종</th>
+                <td><input type="text" name="name" value="galaxy"></td>
+            </tr>
+            <tr>
+                <th>가격</th>
+                <td><input type="text" name="price" value="100"></td>
+            </tr>
+            <tr>
+                <th>회사</th>
+                <td><input type="text" name="company" value="SAMSUNG"></td>
+            </tr>
+            <tr>
+                <th>제작연도</th>
+                <td><input type="text" name="year" value="2019"></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" class="btn btn-dark" value="등록">
+                </th>
+                
+            </tr>
+        </table>
+    </form>
+    </div>
+</body>
+</html>

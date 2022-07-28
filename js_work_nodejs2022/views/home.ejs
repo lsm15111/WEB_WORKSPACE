@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>스마트폰 목록</p>
+<%- include('header.ejs')%>
+
+    <div class="container">
+        <h2>스마트폰 목록</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>번호</th>
+                <th>기종</th>
+                <th>가격</th>
+                <th>제조사</th>
+                <th>출시</th>
+            </tr>
+            <% phoneList.forEach(function(phone) { %>
+                <tr>
+                    <td><%=phone.pno %></td>
+                    <td><%=phone.name %></td>
+                    <td><%=phone.price %></td>
+                    <td><%=phone.company %></td>
+                    <td><%=phone.year %></td>
+                </tr>
+                <% }); %>
+        </table>
+        <a class="btn btn-dark" href="/input">입력</a>
+        <a class="btn btn-dark" href="/">홈페이지</a>
+    </div>
 </body>
+
 </html>
