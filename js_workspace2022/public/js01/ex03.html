@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js01/ex02</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    div.box {
+        border: 1px solid blue;
+        background-color: orange;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        left: 15px;
+        top: 50px;
+    }
+</style>
+</head>
+
+<body>
+    <h2>자바스크립트 function 예제2</h2>
+    <div class="box">Box01</div>
+
+    <script>
+        var box = document.querySelector('div.box');
+        // 화살표 함수에서 this는 window
+        // function에서 this는 이벤트가 발생한 객체
+        box.addEventListener('mousedown',function(e){
+            console.dir(this);
+            console.log(e.currentTarget);
+            console.dir(e.clientX,e.clientY);
+            box.oX = e.offsetX
+            box.oY = e.offsetY
+            function moveHandler(e2){
+                let X=e2.clientX - box.oX;
+                let Y=e2.clientY - box.oY;
+                box.style.left = X +"px";
+                box.style.top = Y +"px";
+            }
+            window.addEventListener('mousemove',moveHandler);
+            box.addEventListener('mouseup',function(){
+                window.removeEventListener('mousemove',moveHandler);
+            });
+        });
+    </script>
+</body>
+
+</html>

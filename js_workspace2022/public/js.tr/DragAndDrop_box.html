@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: darkkhaki;
+        }
+        div.box {
+            width: 80px;
+            height: 80px;
+            background-color: coral;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            border: 1px solid black;
+        }
+        div.movebox {
+            border: 1px solid black;
+            background-color: crimson;
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            left: 120px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <div id="box3" class="box"></div>
+    <div id="box4" class="box"></div>
+
+    <div id="movebox1" class="movebox"></div>
+    <div id="movebox2" class="movebox"></div>
+
+
+
+    <script>
+        let box = document.querySelectorAll("#box");
+        for(let i =0; i<box.length; i++) {
+            let x1 = box[i].offsetLeft;
+            let y1 = box[i].offsetTop;
+            let x2 = box[i].offsetWidth;
+            let y2 = box[i].offsetHeight;
+        }
+
+        function BoxMaker(e,x,y){
+            let boxm = document.getElementById(e);
+            boxm.style.left = x + "px";
+            boxm.style.top = y + "px";
+
+        }
+
+        function moveBox(e,x,y){
+            let movebox = document.getElementById(e);
+            movebox.style.left = x + "px";
+            movebox.style.top = y + "px";
+
+            movebox.addEventListener('mousedown',function(e){
+            movebox.oX = e.offsetX
+            movebox.oY = e.offsetY
+            function moveHandler(e2){
+                let X=e2.clientX - movebox.oX;
+                let Y=e2.clientY - movebox.oY;
+                movebox.style.left = X +"px";
+                movebox.style.top = Y +"px";
+            }
+            window.addEventListener('mousemove',moveHandler);
+            movebox.addEventListener('mouseup',function(e3){
+                window.removeEventListener('mousemove',moveHandler);
+                if((X>=x1&&X<=x2)&&(Y>=y1&&Y<=y2)){
+                    
+                }
+            });
+            });
+        }
+        
+
+        new BoxMaker('box1', 20,20);
+        new BoxMaker('box2', 140,20);
+        new BoxMaker('box3', 260,20);
+        new BoxMaker('box4', 380,20);
+
+        new moveBox('movebox1',120,200);
+        new moveBox('movebox2',280,200);
+    </script>
+</body>
+</html>

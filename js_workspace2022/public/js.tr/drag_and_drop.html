@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: cornflowerblue;
+        }
+        .fill{
+            background-color: darkkhaki;
+            position: relative;
+            height: 150px;
+            width: 150px;
+            top: 5px;
+            left: 5px;
+            cursor: pointer;
+        }
+        .empty {
+            display: inline-block;
+            height: 160px;
+            width: 160px;
+            margin: 10px;
+            background-color:white;
+        }
+        .hold {
+            border: 1px solid darkkhaki;
+        }
+        .hovered {
+            background:cornsilk;
+            border-style: dashed;
+        }
+        .invisible {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="empty">
+        <div class="fill" draggable="true"></div>
+    </div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+
+    <script>
+        let fill = document.querySelector('#fill');
+        let emptys = document.querySelectorAll('#empty');
+        console.log(emptys);
+        for(const empty of emptys){
+            empty.addEventListener('dragover',dargOver);
+            empty.addEventListener('dragenter',dargEnter);
+            empty.addEventListener('dragleave',dargLeave);
+            empty.addEventListener('drop',dargDrop);
+        }
+
+        fill.addEventListener('dragstart', function() {
+            this.className += 'hold';
+            setTimeout(() => (this.className = 'invisible'),0);
+        });
+        fill.addEventListener('dragend', function() {
+            this.className = 'fill';
+        });
+    </script>
+</body>
+</html>
