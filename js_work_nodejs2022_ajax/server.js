@@ -26,9 +26,8 @@ let phoneList = [
 ];
 
 // 라우트(route) 설정
-app.get('/', (req, res)=> {
-    res.send('Hello World!');//문자열
-    reset.end('<h1>Hello World!</h1>');//객체
+app.get('/list', (req, res)=> {
+    res.send({phoneList});
 });
 
 // home 페이지
@@ -40,12 +39,35 @@ app.get('/home', (req, res)=> {
 });
 
 // ejs 페이지로 forword
-app.get('/input', (req, res)=> {
-    req.app.render('input', {phoneList},(err, htmlData)=>{
+app.post('/insert', (req, res)=> {
+    let phoneData = {
+        pno : top++,
+        name : req.body.name,
+        price : req.body.price,
+        company : req.body.company,
+        year : req.body.year
+    };
+    phoneList.push(phoneData);
+    res.send({phoneList});
+});
+
+// 삭제 --single home
+app.post('/delete/:pno', (req, res)=> {
+    let idx = phoneList.findIndex((item)=>{
+        console.log(item.pno, req.params.pno);
+        return item.pno == Number(req.params.pno);
+    });
+    console.log(idx);
+    phoneList.splice(idx, 1);
+});
+
+app.get("/input", (req, res)=>{
+    req.app.render('input', {phoneList}, (err, htmlData)=>{
         if(err) throw err;
         res.end(htmlData);
     });
 });
+
 // input 데이터 처리
 app.post('/input', (req, res)=> {
     let phoneData = {
