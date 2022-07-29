@@ -1,20 +1,30 @@
 {
   "name": "js_workspace2022",
   "version": "1.0.0",
-  "description": "",
+  "description": "\"# js_server-web\"",
   "main": "index.js",
   "scripts": {
-    "server" : "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsm15111/js_server-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lsm15111/js_server-web/issues"
+  },
+  "homepage": "https://github.com/lsm15111/js_server-web#readme"
 }

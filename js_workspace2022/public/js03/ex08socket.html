@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.5.0/socket.io.js"></script>-->
+    <style>
+        #messageBox {
+            border: 1px solid black;
+            width: 400px;
+            height: 200px;
+            background-color: darkgray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="messageBox">메세지를 입력하세요</div>
+    <input type="text" value="hello world" id="messageInput">
+    <input type="button" value="전송" id="sendBtn">
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+        let messageInput = document.querySelector('#messageInput');
+        let sendBtn = document.querySelector('#sendBtn');
+        let messageBox = document.querySelector('#messageBox');
+
+        const socket = io.connect('http://localhost:3000');
+        socket.on('connect', function (data) {
+            console.log("서버 소켓과 연결 됨");
+            messageBox.innerHtml += "<br>서버 소켓과 연결됨";
+
+            sendBtn.onclick = function (e) {
+                let message = messageInput.value;
+                //console.log(message);
+                socket.emit('client-message', { sender: 'user01', message: message });
+
+            }
+            socket.on('news', function (data) {
+                //console.log(data);
+                messageBox.innerHtml += "<br>" + data['sender'] + " : " + data['message'];
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

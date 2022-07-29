@@ -2,19 +2,45 @@ const http = require('http');
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const socketio = require('socket.io');
 
 // public 폴더 static 설정
-app.use(express.static('public'));
+app.use(express.static(__dirname +'/public'));
 
 app.get("/", (req, res)=> {
     res.end("<h1> hello world</h1>");
 });
 
-app.get("/list", (req, res)=> {
-    res.end("<h1> list~</h1>");
-});
-
 const server = http.createServer(app);
 server.listen(3000, ()=>{
     console.log("run on Server : http://localhost:3000");
+});
+
+console.log(socketio);
+let io = socketio.listen(server);
+
+
+// 클라이언트에서 접속이 되면 실행
+io.sockets.on('connection', function(socket) {
+    // socket 매개 변수 - 클라이언트 소켓.
+    console.log(">>>클라이언트 소켓 접속");
+
+    //socket.emit('news','hello');
+    socket.on('client-message', function(data) {
+        console.log("client message: ", data);
+        io.sockets.emit('news',data);
+    });
+
+    socket.on('message', function(data) {
+        console.log("message : ",data);
+        switch(data['status']){
+            case 'start':
+                io.sockets.emit('start',data); break;
+            case 'draw':
+                io.sockets.emit('draw',data); break;
+            case 'end': 
+                io.sockets.emit('end',data); break;
+        }
+
+    });
 });
