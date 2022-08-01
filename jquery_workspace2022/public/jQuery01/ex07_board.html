@@ -66,6 +66,7 @@
         //박스 왼쪽 움직임
         function boxleftmove() {
             if (i >= 0 || i <= lilist.length + 1) {
+                i--;
                 if (lilist[i - 1]) {
                     lilist[i - 1].style.display = "block";
                     lilist[i - 1].style.width = 100 + "px";
@@ -81,12 +82,18 @@
                     lilist[i + 1].style.width = 100 + "px";
                     lilist[i + 1].style.height = 100 + "px";
                 }
-                i--;
+                if (lilist[i + 2]) {
+                    lilist[i + 2].style.display = "none";
+                }
             }
         }
         //박스 오른쪽 움직임
         function boxrightmove() {
             if (i >= 0 || i <= lilist.length + 1) {
+                i++;
+                if (lilist[i - 2]) {
+                    lilist[i - 2].style.display = "none";
+                }
                 if (lilist[i - 1]) {
                     lilist[i - 1].style.display = "block";
                     lilist[i - 1].style.width = 100 + "px";
@@ -102,7 +109,6 @@
                     lilist[i + 1].style.width = 100 + "px";
                     lilist[i + 1].style.height = 100 + "px";
                 }
-                i++;
             }
         }
         boxleftmove();
