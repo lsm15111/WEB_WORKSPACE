@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">box</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+
+    <div class="status">상태</div>
+
+<script>
+    let _$ = function myQuery(selector){
+        let dom = document.querySelectorAll(selector);
+        var obj = {};
+        obj.dom = dom;
+
+        obj.loop = function(callback){
+            for (let i=0; i<this.dom.length; i++){
+                callback(this.dom[i]);
+            }
+            return this;
+        }
+
+        obj.color = function(color){
+            obj.loop(function(el){
+                el.style.color = color
+                });
+            return this;
+        }
+
+        
+        obj.border = function(data){
+            obj.loop(function(el){
+                el.style.border = data;
+            });
+            
+        }
+        obj.size = function(wh){
+            obj.loop(function(el){
+                el.style.width = wh.width;
+                el.style.height = wh.height;
+            });
+            return this;
+        }
+        obj.moveTo = function(args){
+            obj.loop(function(el){
+                let target = parseInt(args.Left);
+                let x = el.offsetLeft;
+                el.style.position = "relative";
+                el.style.transition = "left .2s";
+                let interval = setInterval(function(){
+                    x+=4;
+                    if(x>=target){
+                        el.style.left = target + "px";
+                        clearInterval(interval);
+                    }
+                    el.style.left = x + "px";
+                },30);
+            });
+            return this;
+        }
+        return obj;
+    };
+
+
+    _$(".box").color("red").border("3px solid green");
+    _$(".status").color("gray").border("3px solid gray");
+    _$(".status").size({'width':'100px', 'height':'100px'})
+                .moveTo({'Left':'300px'});
+</script>
+</body>
+</html>
