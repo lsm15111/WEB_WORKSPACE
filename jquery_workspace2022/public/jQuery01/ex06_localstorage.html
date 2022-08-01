@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex06_localstorage.html</title>
+</head>
+<body>
+    
+
+    <script>
+        //localStorage에 저장
+        localStorage.setItem("user","홍길동");
+        //저장된 데이터 불러오기
+        let user = localStorage.getItem("user");
+        document.write(`<h3>user : ${user}</h3>`);
+        
+        //localStorage에 객체 데이터 저장
+        let listSample = [ 
+            {user:'KIM',age:25},
+            {user:'YUN',age:20},
+            {user:'LEE',age:30}
+        ]
+
+        // 객체를 문자열로 변환 해서 저장 JSON (stringify,parse)
+        localStorage.setItem("listSample", JSON.stringify(listSample));
+        let newListStr = localStorage.getItem("listSample");
+        let objList = JSON.parse(newListStr);
+
+        console.log(objList[0].user,objList[0].age);
+    </script>
+</body>
+</html>
