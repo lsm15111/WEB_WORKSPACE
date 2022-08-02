@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Firebase Hosting</title>
+
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <script defer src="/__/firebase/8.9.1/firebase-app.js"></script>
+  <script defer src="/__/firebase/8.9.1/firebase-auth.js"></script>
+  <script defer src="/__/firebase/8.9.1/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/8.9.1/firebase-storage.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+  <script src="bootstrap/jquery.slim.min.js"></script>
+  <script src="bootstrap/popper.min.js"></script>
+  <script src="bootstrap/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <h1>스마트폰 쇼핑몰</h1>
+  <div class="container">
+    <p>구글 파이어베이스를 활용한 싱글페이지 어플리케이션 구현</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      $('body').append("<h1>hello</h1>");
+      try {
+        let app = firebase.app();
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+        // console.log(app);
+        // console.log(db);
+        // console.log(storage);
+
+        db.collection("car").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data().name}`);
+          });
+        });
+      } catch (e) {
+        console.error(e);
+        loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+      }
+    });
+
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyCRaOcA5avW8ZRFfp_OD5shSz0Y660yH9U",
+      authDomain: "studynews-555.firebaseapp.com",
+      projectId: "studynews-555",
+      storageBucket: "studynews-555.appspot.com",
+      messagingSenderId: "1014465985818",
+      appId: "1:1014465985818:web:c5b775e555e3774cfa80a3",
+      measurementId: "G-8NFX1K8VTD"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+</body>
+
+</html>
