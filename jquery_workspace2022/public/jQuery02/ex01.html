@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery02/ex02.html</title>
+</head>
+<body>
+    <h1>jQuery 실습</h1>
+    <div id="box">box</div>
+    <button id="changeBtn">체인지</button>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script>
+        let fish =['금붕어','대구','명태','오징어'];
+        $('#box').html("<h2>hello</h2>");
+        // Getters 와 Setters 함께 사용
+        let html = $('#box').html();
+        let txt = $('#box').text();
+        console.log(html);
+        console.log(txt);
+        // $('#box').html(html + "<h3>world</h3>");
+        $('button#changeBtn').click(function(e){
+            $('#box').html(`<h3>${$('#box').text()} World</h3>`);
+        });
+        
+    </script>
+</body>
+</html>
