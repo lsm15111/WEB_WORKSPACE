@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>jQuery 실습</h1>
+    <div id="box">box</div>
+    <button id="changeBtn">체인지</button>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script>
+        let fish = ['금붕어', '대구', '명태', '오징어'];
+        let arr = fish.map(function (item, i, ar) {
+            // console.log(item,i,ar);
+            return `<li>${item}</li>`;
+        });
+        $('#changeBtn').click(function () {
+            $('#box').append('<ul>');
+            arr.forEach(function (item) {
+                $('#box ul').append(item);
+            });
+        });
+
+        $(document).ready(function () {
+            // jQuery 진입점
+        });
+    </script>
+    <!--
+        // jQuery 메서드 기본 구조
+        // $('css셀렉터').메서드(콜백);
+        
+        // $('css셀렉터').on('이벤트',콜백);
+
+        // 윈도우 이벤트의 종류
+        // ready resize scroll load unload
+
+        // 입력 양식 이벤트의 종류
+        // submit reset focus blur ...
+
+        // 마우스 이벤트의 종류
+        // click dbclick mousedown mouseup mouseenter mouseleave
+        // mousemove mouseover hover ...
+    -->
+</body>
+
+</html>
