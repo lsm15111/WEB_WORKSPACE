@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function TestProps(props){
+            return (<>
+                <h3>{props.title}</h3>
+                <p>{props.user}</p>
+            </>);
+        }
+        function MyList(props){
+            return (<>
+            <h2>{props.title}</h2>
+                <ul>
+                    
+                    {props.list.map((item,i)=>{
+                        return (<li key={i}>{item}</li>);
+                    })}
+                </ul>
+                </>);
+        }
+
+        function App() {
+            let name = "홍길동";
+            let fishList = ['오징어','꼴뚜기','명태','대구'];
+            let saramList = ['김길동','이길동','박길동','최길동'];
+            return (<>
+                <h1>Hello World!</h1>
+                { /*컴포넌트의 속성은 임의로 지어서 사용*/ }
+                <MyList list={fishList} title="물고기 목록"/>
+                <MyList list={saramList} title="사람 목록"/>
+                </>);
+        }
+        ReactDOM.render(<App/>, document.getElementById('root'))
+    </script>
+</body>
+</html>
