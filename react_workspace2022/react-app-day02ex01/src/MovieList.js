@@ -1,4 +1,4 @@
-function MovieList({movieList,setMovieList}){
+function MovieList({movieList}){
     
     return (<div>
         {/* list form*/}
