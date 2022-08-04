@@ -9,13 +9,13 @@ function MovieSearch({onSearchMovie}){
         <fieldset>
           <legend>영화 정보 검색</legend>
           <label>영화검색</label>
-          <input type="text" value={movieSearch} onChange={(e)=>{
+          <input type="text" value={movieSearch||''}
+          onChange={(e)=>{
             setMovieSearch(e.currentTarget.value);
           }}
-          
           onKeyUp={(e)=>{
-            console.log(movieSearch)
-            onSearchMovie(movieSearch)
+            console.log(e.currentTarget.value);
+            onSearchMovie(e.currentTarget.value);
           }}
           />{" "} <span>{movieSearch}</span><br />
             
