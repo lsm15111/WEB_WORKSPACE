@@ -19,13 +19,16 @@ function App() {
     let newData = {no:mno,movietitle:movietitle, openDate:openDate,rating:5}
     let newList = [...movieList, newData]; // (...) = 기존의 리스트를 복제해옴
     setMovieList(newList);
+    setSearchList(newList);
   }
 
-  function searchMovieFn(keyword){
+  function searchMovie(keyword){
     let newList = movieList.filter(function(movie){
-      return movie.movieTitle.indexOf(keyword) !== 1;
+      return movie.movietitle.indexOf(keyword) !== -1;
     });
+    if(newList){
     setSearchList(newList);
+    }
   }
 
   return (<>
@@ -34,8 +37,8 @@ function App() {
       <h3>오늘날짜: {today}</h3>
     </div>
     <MovieInput onSaveMovie={saveMovieFn}/>
-    <MovieSearch onSearchMovie={searchMovieFn}/>
-    <MovieList movieList={movieList} setMovieList={setMovieList}/>
+    <MovieSearch onSearchMovie={searchMovie}/>
+    <MovieList movieList={searchList}/>
     
   </>);
 }
