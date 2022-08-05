@@ -37,10 +37,11 @@ router.route('/').get((req, res)=>{
 });
 
 router.route('/saram/input').post((req, res)=>{
-    let data = {no:no++, irum:req.body.name, tel:req.body.tel}
+    let data = {no:no++, irum:req.body.irum, tel:req.body.tel}
 
     dataList.push(data);
     console.log(">>>>> 등록 성공!!");
+    
     res.send(dataList);
 });
 
