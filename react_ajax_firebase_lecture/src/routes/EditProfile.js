@@ -5,4 +5,4 @@ const EidtProfile = (props) => {
     </>)
 }
 
-export default EidtProfile;
+export default EidtProfile; 

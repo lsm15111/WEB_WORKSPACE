@@ -78,5 +78,4 @@ const Home = ({onLogout}) => {
         </table>
     </>)
 }
-
 export default Home;
