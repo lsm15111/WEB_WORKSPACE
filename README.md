@@ -1,4 +1,4 @@
 Web <br/>
 HTML,CSS,SCRIPT <br/>
-SCRIPT React,jQuery,Bootstrap <br />
+React,jQuery,Bootstrap,OpenAPI <br />
 Firebase(store,hosting,strage,authentication) <br />
