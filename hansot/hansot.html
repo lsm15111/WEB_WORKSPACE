@@ -12,14 +12,11 @@
         position:absolute;
         z-index: 2;
         width: 80%;
+        margin: auto;
         margin-top: 20px;
       }
-      * {
-  margin: 0;
-  padding: 0;
-}
 .area_sc {
-  width: 45%;
+  width: 50%;
   height: auto;
   box-sizing: border-box;
   border-bottom: 6px solid #373737;
@@ -28,6 +25,8 @@
   float: left;
   padding-left: 3%;
   padding-right: 3%;
+  background-color: rgb(231, 231, 231);
+  
 }
 .s_block {
   font-size: 20px;
@@ -51,16 +50,30 @@
   left: 0;
   transition: width 0.5s ease, left 0.5s ease;
 }
-.center{
-  margin: auto;
+.menubox{
+  position: relative;
 }
+.osc{
+  height: 250px;
+  width: 27%;
+  background-color: antiquewhite;
+  display: inline-block;
+}
+.tsc{
+  height: 250px;
+  width: 30%;
+  background-color: antiquewhite;
+  display: inline-block;
+  
+}
+
 
 
     </style>
 </head>
 <body>
   
-  <div class="container">
+  <div class="container center">
         
     <nav class="navbar navbar-expand-sm bg-light navbar-light absol">
         <div class="container-fluid">
@@ -122,9 +135,9 @@
     
     
 
-      <div class="container center">
+      <div class="menubox">
         
-        <div class="area_sc" >
+        <div class="area_sc">
           <figure class="sc_wrap">
             <span class="sc_img">
               <img src="img/main01.jpg" alt="전체메뉴 이미지" />
@@ -138,7 +151,7 @@
             </figcaption>
           </figure>
         </div>
-        <div class="area_sc ">
+        <div class="area_sc">
           <figure class="sc_wrap">
             <span class="sc_img">
               <img src="img/main02.jpg" alt="전체메뉴 이미지" />
@@ -154,6 +167,15 @@
         </div>
     
       </div>
+
+
+        <div class="tsc"></div>
+        <div class="tsc"></div>
+        <div class="tsc"></div>
+
+
+
+
 
 </body>
 </html>
