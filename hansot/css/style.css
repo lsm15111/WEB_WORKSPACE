@@ -56,7 +56,17 @@
 .top_margin{
     margin-top: 4%;
 }
-
+.logsign {
+    position:absolute;
+    z-index: 2;
+    width: 80%;
+    text-align: end;
+    
+}
+.a1 {
+    text-decoration: none;
+    color:black;
+}
 .absol{
     position:absolute;
     z-index: 2;
@@ -83,6 +93,7 @@
   
   
 }
+.dropdown:hover .dropdown-menu {display: block;}
 .float_right {
     float: right;
 }
