@@ -67,12 +67,29 @@
     text-decoration: none;
     color:black;
 }
+.rel{
+    position: relative;
+    height: 120px;
+}
+.menuset {
+    font-size: 30px;
+    font-weight: 500;
+    color:#333;
+    height: 110px;
+    text-align: left;
+    
+    
+    
+
+    background-color: white;
+}
 .absol{
     position:absolute;
     z-index: 2;
     width: 80%;
     margin: auto;
     margin-top: 20px;
+    height: 70px;
     }
 .center{
     margin: auto;
@@ -92,6 +109,9 @@
   
   
   
+}
+.dropdown a:hover {
+    text-decoration:underline;
 }
 .dropdown:hover .dropdown-menu {display: block;}
 .float_right {
