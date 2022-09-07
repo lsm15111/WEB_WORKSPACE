@@ -71,14 +71,7 @@
     position: relative;
     height: 120px;
 }
-.menuset {
-    font-size: 30px;
-    font-weight: 500;
-    color:#333;
-    height: 110px;
-    text-align: left;
-    background-color: white;
-}
+
 
 .absol{
     position:absolute;

@@ -4,3 +4,19 @@
     margin: 0;
     padding: 0;
 }
+
+.menuset {
+    margin-top: 150px;
+    font-size: 30px;
+    font-weight: 500;
+    color:#333;
+    width: 80%;
+    height: 110px;
+    text-align: left;
+    background-color: white;
+    position:absolute;
+}
+.menulistbar{
+    margin-top: 300px;
+    position: absolute;
+}
