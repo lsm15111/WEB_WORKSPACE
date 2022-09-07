@@ -9,15 +9,16 @@
     <title>한솥 > 로그인</title>
     <link rel = "stylesheet" type = "text/css" href="css/style.css">
     <link rel = "stylesheet" type = "text/css" href="css/bggray.css">
+    <link rel = "stylesheet" type = "text/css" href="css/login.css">
 </head>
 <body>
   
-  <div class="container ">
+  <div class="container">
     <div class="logsign">
         <a class="a1" href="login.html">로그인</a> | 
         <a class="a1" href="join_step1.html">회원가입</a>
       </div>
-    <nav class="navbar navbar-expand-sm bg-light navbar-light absol">
+    <nav class="navbar navbar-expand-sm bg-white navbar-light absol">
         <div class="container-fluid">
           <a class="navbar-brand" href="hansot.html">hansot</a>
           <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -41,6 +42,21 @@
           </div>
         </div>
       </nav>
+
+      
+
     </div>
+    <div class="container">
+    <div class="logdiv logbox">
+      <div class="logtxt"><h2 class="logboxsize">로그인</h2></div>
+      <div class="area_login">
+      <input class="logboxsize bordergray" type="text" id="log_id" placeholder="아이디"><br/>
+      <input class="logboxsize bordergray" type="text" id="log_pw" placeholder="비밀번호"><br/>
+    </div>
+      <div class="logboxsize"><input class="checkboxsize" type="checkbox" id="log_id_save">  아이디 저장</div><br/>
+      <button class="logboxsize logbtn">로그인</button>
+    </div>
+
+  </div>
 </body>
 </html>

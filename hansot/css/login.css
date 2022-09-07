@@ -1,0 +1,50 @@
+
+.logdiv {
+    background-color: white;
+    width: 50%;
+    height: 500px;
+}
+.logtxt {
+    margin-top: 70px;
+}
+.logbox {
+    margin-top: 130px;
+    position: absolute;
+    
+}
+.logformcont {
+    box-sizing: border-box;
+    margin: auto;
+}
+.logboxsize{
+    width: 473px;
+    height: 43px;
+    display: flex;
+    margin: 0 auto;
+}
+.checkboxsize {
+    width: 25px;
+    height: 25px;
+}
+
+.logbtn {
+    border: 0;
+    margin: auto;
+    display:block;
+    color: rgb(172, 172, 172);
+    font-weight: 600;
+}
+.bordergray {
+    border: 2px solid #eeecec;
+}
+
+
+.area_login {
+    margin-top: 25px;
+}
+.area_login #log_id {
+    margin-bottom: 0;
+}
+.area_login #log_pw {
+    margin-top: 0;
+}
