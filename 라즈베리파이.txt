@@ -1,0 +1,32 @@
+라즈베리 파이
+
+기본설정-Raspberry Pi Configuration
+ - Interfaces SSH, VNC 활성화
+ - Localisation (Set Locale - ko(korean)),(Set Timezone - (Asia)),(Set WiFi Country Code - US)
+
+wifi 연결
+
+ifconfig
+(ip확인 127.0.0.1)
+
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt install fonts-nanum
+
+sudo apt install nabi
+sudo apt install im-config
+
+vi /etc/dhcpcd.conf => (wlan0: 무선, eth0: 유선)
+sudo nano /etc/dhcpcd.conf
+
+interface eth0
+static ip_address=<IP address>/24
+static routers=192.168.~.1
+static domain_name_servers=<DNS>
+
+sudo /etc/init.d/networking restart
+sudo reboot
+
+sudo passwd root
+raspberry
