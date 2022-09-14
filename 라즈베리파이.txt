@@ -30,3 +30,61 @@ sudo reboot
 
 sudo passwd root
 raspberry
+
+sudo api install python3-pip python3-dev
+sudo pip3 install jupyterlab
+
+cd .jupyter //나가는법 exit()
+
+python3
+
+from notebook.auth import passwd
+passwd()
+비밀번호입력 두번
+sha`:암호화된 비밀번호 출력됨
+exit()
+
+sudo nano jupyter_lab_config.py
+내부내용확인
+
+c.NotebookApp.allow_orign='*' //외부접속가능
+c.NotebookApp.ip='*'            //아이피 모두허용
+c.NotebookApp.port=8888     //포트
+c.NotebookApp.password='아르곤2:패스워드'
+c.NotebookApp.notebook_dir='/home/pi(?)/workspace'
+
+jupyter lab //서버접속
+
+!pip -V
+!pip install update
+
+!jupyter --version
+
+
+
+cat > server01.js  //node.js 서버 복붙
+node server01.js  //실행
+
+cat > server02.js //express 서버 html  --express 설치필요
+sudo apt-get install nodejs npm
+npm init
+npm install express
+
+
+test0914bot
+
+telegram
+BotFather - /newbot - ???_bot
+https://api.telegram.org/bot<token>/getUpdates
+채팅아이디, 토큰 필수
+id = 5777133725
+token = 5730278636:AAGgxB4fo2BQ6C0NzdHpFmjc9EycP1K_5ZA
+
+라즈베리파이에서 설치
+npm i node-telegram-bot-api
+
+npmjs.com에서 패키지 
+Node.js Telegram Bot API
+Usage 복사
+
+api용 토큰 입력
