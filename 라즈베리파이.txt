@@ -88,3 +88,10 @@ Node.js Telegram Bot API
 Usage 복사
 
 api용 토큰 입력
+
+raspi-gpio
+
+cat /sys/class/thermal/thermal_zone0/temp
+/opt/vc/bin/vcgencmd measure_temp
+
+https://github.com/eleparts/RPi_I2C_LCD_driver
